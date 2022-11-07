@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Piano1</title>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="piano1.css">
+</head>
+<body>
+	<script ayans type="text/javascript">
+
+		let Array = ["do",
+					"re",
+					"mi",
+					"fa",
+					"so",
+					"la",
+					"si",
+					"do"
+				];
+
+		let div = document.createElement('div');
+		document.body.appendChild(div);
+		div.style.width = "640px";
+		div.style.height = "260px";
+		div.style.border = "5px solid";
+		div.style.margin = "100px auto";
+		div.style.position = "relative";
+
+		let div11 = document.createElement('div11');
+		div.append(div11);
+
+		let witheConteiner = document.createElement('witheConteiner');
+		div.append(witheConteiner);
+
+		witheConteiner.style.width = "640px";
+		witheConteiner.style.height = "200px";
+		witheConteiner.style.display = "flex";
+
+		function keyboard() {
+		for(i = 0; i < Array.length ; i++) {
+			let noteWհite = document.createElement('noteWհite');
+			witheConteiner.append(noteWհite);
+			noteWհite.id = 'noteWհite';
+			
+			noteWհite.audio = "sounds/" + Array[i] + ".mp3";
+			console.log(noteWհite.audio);
+			noteWհite.style.width = "80px";
+			noteWհite.style.height = "260px";
+			noteWհite.style.borderLeft = "2px solid black";
+			noteWհite.style.position = "relative";
+
+			noteWհite.onclick = function() {
+				
+				let audio = new Audio(noteWհite.audio);
+				audio.play(noteWհite.audio);
+			};
+
+		};
+	};
+
+	keyboard();
+
+	let witheConteiner2 = document.createElement('witheConteiner2');
+		div.append(witheConteiner2);
+
+		witheConteiner2.style.width = "640px";
+		witheConteiner2.style.height = "160px";
+		witheConteiner2.style.display = "flex";
+		witheConteiner2.style.position = "absolute";
+		witheConteiner2.style.bottom = "100px";
+
+		function keyboard2() {
+			for(i = 0; i < 8 ; i++) {
+				let noteWհite2 = document.createElement('noteWհite2');
+				witheConteiner2.append(noteWհite2);
+				noteWհite2.id = 'noteWհite2';
+
+				noteWհite2.style.width = "80px";
+				noteWհite2.style.height = "160px";
+				noteWհite2.style.position = "relative";
+			
+				let arr = [	"sounds/do.mp3",
+							"sounds/re.mp3",
+							"",
+							"",
+							"sounds/mi.mp3",
+							"sounds/fa.mp3",
+							"sounds/so.mp3"];
+
+				function blackBoard() {
+					if (i != 2 && i != 3 && i != 7) {
+						let blackNot = document.createElement('blackNot');
+						noteWհite2.append(blackNot);
+						
+						blackNot.style.width = "30px";
+						blackNot.style.height = "150px";
+						
+						blackNot.classList.add("blackNotpassive");
+						blackNot.style.borderRadius = "10px";
+						blackNot.style.left = "65px";
+						blackNot.style.top = "5px";
+						blackNot.style.position = "absolute";	
+						blackNot.audio = arr[i];
+						blackNot.style.zIndex = "2";
+						
+						blackNot.onmousedown = function() {
+						blackNot.classList.remove("blackNotpassive")
+						blackNot.classList.add("blackNotactive");
+						let audio = new Audio(blackNot.audio);
+						audio.play(blackNot.audio);
+						};
+
+						blackNot.onmouseup = function() {
+							blackNot.classList.remove("blackNotactive");
+							blackNot.classList.add("blackNotpassive");
+						};
+					};			
+				};
+
+				blackBoard();
+			};
+		};
+
+		keyboard2();
+	</script>
+</body>
+</html>

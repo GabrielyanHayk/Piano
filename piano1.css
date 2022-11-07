@@ -1,0 +1,23 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+#noteWհite:active {
+	background-color:#e4e2e6;
+	cursor: pointer;
+}/*
+#blackNot {
+	cursor: pointer;
+}
+#blackNot:active {
+	background-color: blue;
+	/*margin-left:150px;
+}
+*/
+.blackNotpassive {
+	background-color: black;
+}
+.blackNotactive {
+	background-color: #585252;
+}
